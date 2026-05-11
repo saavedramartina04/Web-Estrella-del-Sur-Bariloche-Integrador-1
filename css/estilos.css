@@ -1,0 +1,179 @@
+*{
+    box-sizing: border-box;
+    box-sizing: content-box;
+    font-family: "Stardos Stencil", system-ui;
+    font-weight: 400;
+     font-style: normal;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Stardos+Stencil:wght@400;700&display=swap');
+
+
+body, ul, h1, h3, p{
+    margin: 0;
+}
+
+body{
+   font-family: "Stardos Stencil", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header{
+    
+    width: 100%;
+    height: auto;
+
+
+}
+header nav {
+    background-color: #E61313;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+header nav ul {
+    /* border: 1px solid blue; */
+    width: 80%;
+    height: auto;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+}
+
+header nav ul li {
+    /* border: 1px solid yellow; */
+    width: 100%;
+    height: auto;
+
+}
+
+header nav ul li a {
+    text-decoration: none;
+    /* border: 1px solid white; */
+    display: block;
+    width: 115px;
+    height: 54px;
+    background-color: #C22727;
+    color: white;
+    text-align: center;
+    line-height: 54px;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px #5d1919 ;
+}
+
+
+
+header > div {
+    background-color: #555;
+    width: 100%;
+    border: 1px solid E6AA02;
+    display: flex;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+}
+#logo {
+    height: 54px;
+    width: 10%;
+    background-color: #E6AA02;
+    text-align: center;
+    line-height: 54px;
+    font-size: 22px;
+}
+
+#barrabusqueda {
+    height: 54px;
+    width: 85%;
+    background-color: #E6AA02;
+    text-align: center;
+    line-height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#boton-carrito {
+    height: 54px;
+    width: 5%;
+    background-color: #daa250;
+    text-align: center;
+    line-height: 54px;
+    font-size: 20px;
+}
+
+#barrabusqueda form {
+    width: 85%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#barrabusqueda form label { 
+    background-color: #E6AA02;
+    width: 100px;
+    height: 22px;
+    /* display: inline-block; */
+    line-height: 22px;
+    text-align: center;
+}
+
+#barrabusqueda form input {
+    background-color:  #C22727;
+    width: 50%;
+    height: 20px;
+    color: white;
+}
+    
+#barrabusqueda form input[type="submit"]{
+    background-color: #296EB4;
+    width: 100px;
+    height: 28px;
+}
+    
+main{
+    height: auto;
+}
+
+footer{
+    background-color: #C22727;
+    color: white;
+    height:100px ;
+    text-align: center;
+    line-height:  50px; 
+    font-size: 22px;
+}
+section p {
+    margin: 10px;
+}
+
+#logoImg{
+    height: 55px;
+    width: 55px;
+}
+
+footer div img{
+    height: 35px;
+    width: 35px;
+}
+
+footer div a{
+    text-decoration-line: none;
+    color: white;
+}
+
+.redes{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}

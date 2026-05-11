@@ -1,0 +1,105 @@
+main{
+    background: #ddd url(../img/fondo2.jpg)center no-repeat ;
+    background-size: cover;
+    padding: 20px;
+    height: auto;
+}
+
+main h1{
+    text-align: center;
+}
+
+/* maquetado formulario */
+.alta-form{
+    background-color: #C22727;
+    width: 80%;   
+    margin: 20px auto;
+    padding: 30px;
+    color: white;
+    border-radius: 20px;
+    border: 1px dashed white;
+
+   /*  display: none; */ /* solo para probar, (oculta el formulario) */
+}
+
+.input-group{
+    /* border: 1px solid cyan; */
+    text-align: center;
+    padding: 3px;
+}
+
+main form label{
+    color:white ;
+    font-weight: 700;
+    text-transform: capitalize;
+    display: block;
+    margin-bottom: 5px;
+
+}
+
+main label[for="envio"] {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+main button{
+    text-align: center;
+    display: block;
+    margin: 15px auto;
+    height: 40px;
+    width: 30%;
+    background-color: white;
+    color: #130f40;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+main input{
+    width: 70%;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: #E6AA02;
+}
+
+main input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+/* maquetado de la tabla */
+th, td{
+    border: 1px solid black;
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+
+}
+
+table{
+    border-collapse: collapse;
+    margin: 5px auto;
+}
+
+th{
+    text-transform: uppercase;
+    background-color: #111;
+    color: white;
+    font-size: 20px;
+}
+
+td{
+    font-size: 18px;
+}
+.centrar{
+    text-align: center;
+}
+
+main h2{
+    text-align: center;
+}
+
+.reponsive{
+    width: 100%;
+    overflow: auto;
+}
