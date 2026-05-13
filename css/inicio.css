@@ -1,5 +1,8 @@
 section img{
-    width: 150px;
+    width: 200px;
+    border-radius: 15px;
+    margin-top: 15px;
+    margin-bottom: 55px;
    
 }
 main{
@@ -10,20 +13,11 @@ main{
     padding:25px ;
 }
 
-section{
-    border: 1px dashed white;
-    width: 250px;
-    height: auto;
-    padding: 5px;
-    margin: 5px;
-    background-color: #C22727;
-    color: white;
-    border-radius:20px;
-}
 section h3 {
     font-size: 24px;
     margin-bottom: 20px;
     text-decoration: overline wavy;
+    margin-top: 15px;
 
 }
 
@@ -36,5 +30,41 @@ main .section-cards-body {
     color: white;
     margin-bottom: 40px;
 }
-/* section p {
-    /* text-align: left; */
+
+
+.card{
+    width: 250px;
+    background-color: rgba(194,39,39,.85);
+    margin-bottom: 15px;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+.info{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    background-color: rgba(0,0,0,.9);
+    opacity: 0;
+    transform: translateY(100%);
+    transition: .5s;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 12px;
+}
+
+
+.card:hover .info{
+
+    opacity: 1;
+    transform: translateY(0);
+
+}

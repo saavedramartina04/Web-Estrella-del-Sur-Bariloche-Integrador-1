@@ -9,7 +9,7 @@ main h1{
     text-align: center;
 }
 
-/* maquetado formulario */
+
 .alta-form{
     background-color: #C22727;
     width: 80%;   
@@ -18,12 +18,9 @@ main h1{
     color: white;
     border-radius: 20px;
     border: 1px dashed white;
-
-   /*  display: none; */ /* solo para probar, (oculta el formulario) */
 }
 
 .input-group{
-    /* border: 1px solid cyan; */
     text-align: center;
     padding: 3px;
 }
@@ -79,6 +76,8 @@ th, td{
 table{
     border-collapse: collapse;
     margin: 5px auto;
+    background-color: rgba(194,39,39,.5);
+    color: white;
 }
 
 th{

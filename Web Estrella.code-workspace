@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "Web Estrella",
+			"path": "."
+		},
+		{
+			"name": "img",
+			"path": "../../../../Estrella/ECommerce/img"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501,
+		"liveServer.settings.multiRootWorkspaceName": "Web Estrella"
+	}
+}
