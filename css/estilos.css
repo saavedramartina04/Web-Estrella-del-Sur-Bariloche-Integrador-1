@@ -161,13 +161,14 @@ section p {
 }
 
 footer div img{
-    height: 35px;
-    width: 35px;
+    height: 15px;
+    width: 15px;
 }
 
 footer div a{
     text-decoration-line: none;
     color: white;
+    font-size: 15px;
 }
 
 .redes{

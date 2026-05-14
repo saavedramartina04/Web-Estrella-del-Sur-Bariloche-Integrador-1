@@ -7,7 +7,15 @@ main{
     padding: 20px;
     height: auto;
 }
-
+.contacto-form{
+    background-color: #C22727;
+    width: 80%;   
+    margin: 20px auto;
+    padding: 30px;
+    color: white;
+    border-radius: 20px;
+    border: 1px dashed white;
+}
 .contacto{
     background-color: #C22727;
     width: 80%;   
@@ -50,10 +58,27 @@ main button{
     border-radius: 5px;
 }
 
-main input{
+main input, textarea{
     width: 70%;
     height: 30px;
     font-size: 20px;
     border-radius: 5px;
     background-color: #E6AA02;
+}
+
+main input:focus, textarea:focus{
+    background-color: #dec174;
+}
+
+.reponsive{
+    width: 100%;
+    overflow: auto;
+}
+
+input:valid{
+    border: 3px solid green;
+}
+
+input:invalid{
+    border: 3px solid red;
 }
