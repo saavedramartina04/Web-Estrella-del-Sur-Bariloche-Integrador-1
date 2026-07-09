@@ -1,72 +1,35 @@
-const productos = [
-   {
-    nombre: 'Camiseta Roja',
-    precio:25000,
-    stock: 12,
-    marca: "FM Sport",
-    categoria: "Camiseta",
-    descripcionCorta: "Camiseta roja con rayos blancos",
-    descripcionLarga: "Camiseta roja con rayos blancos, numero en dorsal, escudo en la parte delantera",
-    edadDesde: "12",
-    edadHasta: "40",
-    envio: true,
-    foto: "img/camiseta-roja-blanca.png",
+let productos = []
 
-  },
-   {
-    nombre: 'Pantalón Rojo',
-    precio:20000,
-    stock: 11,
-    marca: "FM Sport",
-    categoria: "Short",
-    descripcionCorta: "Short rojo",
-    descripcionLarga: "Short estilo clásico, en color rojo, número y escudo en parte delantera",
-    edadDesde: "10",
-    edadHasta: "40",
-    envio: true,
-    foto: "img/pantalon-roja-blanca.png",
+function representarCardsProductos() {
+    const contenedor = document.querySelector('.section-cards-body')
 
-  },
-   {
-    nombre: 'Medias Rojas',
-    precio:10000,
-    stock: 25,
-    marca: "FM Sport",
-    categoria: "Medias",
-    descripcionCorta: "Medias rojas con escudo",
-    descripcionLarga: "Medias clásicas rojas, con escudo en parte delantera y talon gris",
-    edadDesde: "15",
-    edadHasta: "50",
-    envio: true,
-    foto: "img/medias.png",
+    if (!contenedor) return
 
-  },
-    {
-    nombre: 'Camiseta blanca',
-    precio:25000,
-    stock: 12,
-    marca: "FM Sport",
-    categoria: "Camiseta",
-    descripcionCorta: "Camiseta blanca con rayos grises",
-    descripcionLarga: "Camiseta blanca, con rayos grises en parte delantera, en dorsal es lisa con número.",
-    edadDesde: "12",
-    edadHasta: "40",
-    envio: true,
-    foto: "img/camiseta-blanca.png",
+    let cards = ''
 
-  },
-      {
-    nombre: 'Short Negro',
-    precio:20000,
-    stock: 16,
-    marca: "FM Sport",
-    categoria: "Short",
-    descripcionCorta: "Short negro",
-    descripcionLarga: "Short negro clásico, con escudo y número en la parte delantera.",
-    edadDesde: "12",
-    edadHasta: "40",
-    envio: true,
-    foto: "img/pantalon-negro.png",
+    for (let producto of productos) {
+        cards += `
+            <section class="card">
+                <div class="info-visible">
+                    <img src="${producto.foto}" alt="${producto.nombre}">
+                    <h3>${producto.nombre}</h3>
+                    <p>$${producto.precio}</p>
+                    <p>Stock: ${producto.stock}</p>
+                    <a href="#" class="btn-carrito">Agregar al carrito</a>
+                </div>
 
-  },
-];
+                <div class="info">
+                    <h3>${producto.nombre}</h3>
+                    <p>${producto.descripcionCorta}</p>
+                    <p>${producto.descripcionLarga}</p>
+                    <p>Marca: ${producto.marca}</p>
+                    <p>Categoría: ${producto.categoria}</p>
+                    <p>Edad: ${producto.edadDesde} a ${producto.edadHasta} años</p>
+                    <p>Envío: ${producto.envio ? 'Sí' : 'No'}</p>
+                </div>
+            </section>
+        `
+    }
+
+    contenedor.innerHTML = cards
+}
