@@ -1,12 +1,11 @@
 let carrito = []
 
 function agregarAlCarrito(producto) {
-    if (!producto) {
-        console.error("No llegó ningún producto al carrito")
-        return
-    }
+    if (!producto) return
 
-    const existente = carrito.find(p => p.nombre === producto.nombre)
+    const existente = carrito.find(
+        p => p.nombre === producto.nombre
+    )
 
     if (existente) {
         existente.cantidad++
@@ -18,7 +17,9 @@ function agregarAlCarrito(producto) {
     }
 
     mostrarCarrito()
-    console.log("Carrito:", carrito)
+    mostrarMensajeCarrito(
+        `${producto.nombre} se agregó al carrito`
+    )
 }
 
 function mostrarCarrito() {
@@ -137,3 +138,14 @@ async function confirmarCompra() {
 document
     .querySelector("#confirmar-compra")
     .addEventListener("click", confirmarCompra)
+
+function mostrarMensajeCarrito(texto) {
+    const mensaje = document.querySelector("#mensaje-carrito")
+
+    mensaje.textContent = texto
+    mensaje.classList.add("visible")
+
+    setTimeout(() => {
+        mensaje.classList.remove("visible")
+    }, 2000)
+}

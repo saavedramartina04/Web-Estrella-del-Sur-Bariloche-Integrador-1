@@ -20,6 +20,10 @@ async function cargarVista(vista) {
             await startAlta()
         }
 
+        if (vista === "contacto") {
+    startContacto()
+}
+
     } catch (error) {
         console.error(error)
 

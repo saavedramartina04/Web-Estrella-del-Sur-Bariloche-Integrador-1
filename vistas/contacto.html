@@ -1,25 +1,25 @@
+<section class="vista-contacto">
+    <h1>Contacto</h1>
 
-    <main>
-       <h1>Contacto</h1>
-        <form class="contacto-form" action="#">
+    <form class="contacto-form" action="#" novalidate>
+        <div class="input-group">
+            <label for="contacto-nombre">Nombre</label>
+            <input type="text" id="contacto-nombre" name="nombre">
+        </div>
 
-            <div class="input-group">
-            <label>Nombre</label>
-            <input type="text" id="nombre">
-            </div>
+        <div class="input-group">
+            <label for="contacto-email">Email</label>
+            <input type="email" id="contacto-email" name="email">
+        </div>
 
-            <div class="input-group">
-            <label>Email</label>
-            <input type="email" id="email">
-            </div>
+        <div class="input-group">
+            <label for="contacto-comentarios">Comentarios</label>
+            <textarea
+                id="contacto-comentarios"
+                name="comentarios"
+            ></textarea>
+        </div>
 
-            <div class="input-group">
-            <label>Comentarios</label>
-            <textarea id="comentarios"></textarea>
-            </div>
-                
-            <button>Enviar</button>
-
-        </form>
-    </main>
-
+        <button type="submit">Enviar</button>
+    </form>
+</section>

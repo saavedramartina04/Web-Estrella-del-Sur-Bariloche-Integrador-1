@@ -1,56 +1,169 @@
-//--------------------------------------------------
-//variables globales
-//--------------------------------------------------
+function obtenerMensajeContacto(campo) {
+    const grupo = campo.closest(".input-group")
+    let mensaje = grupo.querySelector(".mensaje-validacion")
 
-const formulario = document.querySelector('form')
+    if (!mensaje) {
+        mensaje = document.createElement("small")
+        mensaje.classList.add("mensaje-validacion")
+        grupo.appendChild(mensaje)
+    }
 
-formulario.addEventListener('submit', validarFormulario)
+    return mensaje
+}
 
-function validarFormulario(e){
+function marcarContacto(campo, esValido, texto) {
+    const mensaje = obtenerMensajeContacto(campo)
 
+    campo.classList.toggle("campo-valido", esValido)
+    campo.classList.toggle("campo-invalido", !esValido)
+
+    mensaje.textContent = texto
+    mensaje.classList.toggle("mensaje-correcto", esValido)
+    mensaje.classList.toggle("mensaje-error", !esValido)
+
+    return esValido
+}
+
+function validarNombreContacto() {
+    const campo = document.querySelector("#contacto-nombre")
+    const valor = campo.value.trim()
+
+    if (valor === "") {
+        return marcarContacto(campo, false, "El nombre es obligatorio.")
+    }
+
+    if (valor.length < 3) {
+        return marcarContacto(
+            campo,
+            false,
+            "El nombre debe tener al menos 3 caracteres."
+        )
+    }
+
+    return marcarContacto(campo, true, "Nombre válido.")
+}
+
+function validarEmailContacto() {
+    const campo = document.querySelector("#contacto-email")
+    const valor = campo.value.trim()
+    const formatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+    if (valor === "") {
+        return marcarContacto(campo, false, "El email es obligatorio.")
+    }
+
+    if (!formatoEmail.test(valor)) {
+        return marcarContacto(
+            campo,
+            false,
+            "Ingresá un email válido, por ejemplo nombre@correo.com."
+        )
+    }
+
+    return marcarContacto(campo, true, "Email válido.")
+}
+
+function validarComentariosContacto() {
+    const campo = document.querySelector("#contacto-comentarios")
+    const valor = campo.value.trim()
+
+    if (valor === "") {
+        return marcarContacto(
+            campo,
+            false,
+            "Los comentarios son obligatorios."
+        )
+    }
+
+    if (valor.length < 10) {
+        return marcarContacto(
+            campo,
+            false,
+            "El comentario debe tener al menos 10 caracteres."
+        )
+    }
+
+    return marcarContacto(campo, true, "Comentario válido.")
+}
+
+function validarFormularioContacto() {
+    const resultados = [
+        validarNombreContacto(),
+        validarEmailContacto(),
+        validarComentariosContacto()
+    ]
+
+    return resultados.every(resultado => resultado === true)
+}
+
+function limpiarValidacionesContacto() {
+    document
+        .querySelectorAll(
+            ".contacto-form .campo-valido, .contacto-form .campo-invalido"
+        )
+        .forEach(campo => {
+            campo.classList.remove("campo-valido", "campo-invalido")
+        })
+
+    document
+        .querySelectorAll(".contacto-form .mensaje-validacion")
+        .forEach(mensaje => mensaje.remove())
+}
+
+function mostrarResultadoContacto(texto, esExito) {
+    let mensaje = document.querySelector("#resultado-contacto")
+
+    if (!mensaje) {
+        mensaje = document.createElement("p")
+        mensaje.id = "resultado-contacto"
+
+        const formulario = document.querySelector(".contacto-form")
+        formulario.before(mensaje)
+    }
+
+    mensaje.textContent = texto
+    mensaje.classList.toggle("resultado-exito", esExito)
+    mensaje.classList.toggle("resultado-error", !esExito)
+}
+
+function enviarContacto(e) {
     e.preventDefault()
 
-    const refNombre = document.querySelector('#nombre')
-    const refEmail = document.querySelector('#email')
-    const refComentarios = document.querySelector('#comentarios')
-
-    const nombre = refNombre.value
-    const email = refEmail.value
-    const comentarios = refComentarios.value
-
-
-    if(nombre == ''){
-        alert('Debe ingresar un nombre')
+    if (!validarFormularioContacto()) {
+        mostrarResultadoContacto(
+            "Revisá los campos marcados antes de enviar.",
+            false
+        )
         return
     }
 
-    if(email == ''){
-        alert('Debe ingresar un email')
-        return
-    }
+    const formulario = document.querySelector(".contacto-form")
 
-    if(comentarios == ''){
-        alert('Debe escribir un comentario')
-        return
-    }
+    mostrarResultadoContacto(
+        "Formulario enviado correctamente.",
+        true
+    )
 
-    if(!email.includes('@')){
-        alert('Email inválido')
-        return
-    }
-
-
-    alert('Formulario enviado correctamente')
-
-    refNombre.value = ''
-    refEmail.value = ''
-    refComentarios.value = ''
+    formulario.reset()
+    limpiarValidacionesContacto()
 }
-//--------------------------------------------------
-//funciones globales
-//--------------------------------------------------
-function start() {
-  console.warn(document.querySelector("title").innerText)
 
-  
+function startContacto() {
+    const formulario = document.querySelector(".contacto-form")
+
+    if (!formulario) return
+
+    document
+        .querySelector("#contacto-nombre")
+        .addEventListener("blur", validarNombreContacto)
+
+    document
+        .querySelector("#contacto-email")
+        .addEventListener("blur", validarEmailContacto)
+
+    document
+        .querySelector("#contacto-comentarios")
+        .addEventListener("blur", validarComentariosContacto)
+
+    formulario.addEventListener("submit", enviarContacto)
 }
