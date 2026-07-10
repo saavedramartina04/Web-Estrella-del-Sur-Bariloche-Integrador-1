@@ -34,3 +34,13 @@ async function guardarPedido(pedido) {
 
     return await respuesta.json()
 }
+
+async function eliminarProducto(id) {
+  const respuesta = await fetch(`${URL_PRODUCTOS}/${id}`, {
+    method: "DELETE"
+  })
+
+  if (!respuesta.ok) {
+    throw new Error("No se pudo eliminar el producto")
+  }
+}

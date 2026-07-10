@@ -1,26 +1,43 @@
 const app = document.querySelector("#app")
 
 async function cargarVista(vista) {
-    const respuesta = await fetch(`vistas/${vista}.html`);
-    const html = await respuesta.text()
+    try {
+        const respuesta = await fetch(`vistas/${vista}.html`)
 
-    app.innerHTML = html
+        if (!respuesta.ok) {
+            throw new Error(`No se pudo cargar la vista ${vista}`)
+        }
 
-    if (vista === "inicio") {
-        start();
-    }
+        const html = await respuesta.text()
 
-    if (vista === "alta") {
-        startAlta()
+        app.innerHTML = html
+
+        if (vista === "inicio") {
+            await start()
+        }
+
+        if (vista === "alta") {
+            await startAlta()
+        }
+
+    } catch (error) {
+        console.error(error)
+
+        app.innerHTML = `
+            <section>
+                <h2>Error al cargar la vista</h2>
+                <p>Intentá nuevamente.</p>
+            </section>
+        `
     }
 }
 
 document.querySelectorAll("[data-vista]").forEach(link => {
-    link.addEventListener("click", function(e) {
+    link.addEventListener("click", async function(e) {
         e.preventDefault()
 
         const vista = this.dataset.vista
-        cargarVista(vista)
+        await cargarVista(vista)
     })
 })
 
