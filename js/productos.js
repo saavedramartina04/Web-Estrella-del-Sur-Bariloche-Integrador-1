@@ -15,7 +15,7 @@ function representarCardsProductos() {
                     <h3>${producto.nombre}</h3>
                     <p>$${producto.precio}</p>
                     <p>Stock: ${producto.stock}</p>
-                    <a href="#" class="btn-carrito">Agregar al carrito</a>
+                    <button class="btn-carrito" data-nombre="${producto.nombre}">Agregar al carrito                    </button>
                 </div>
 
                 <div class="info">
@@ -31,5 +31,19 @@ function representarCardsProductos() {
         `
     }
 
-    contenedor.innerHTML = cards
+    contenedor.innerHTML = cards;
+
+    document.querySelectorAll(".btn-carrito").forEach(boton => {
+    boton.addEventListener("click", () => {
+        const nombre = boton.dataset.nombre
+
+        const producto = productos.find(p => p.nombre == nombre)
+
+        console.log("Nombre del botón:", nombre)
+        console.log("Producto encontrado:", producto)
+
+        agregarAlCarrito(producto)
+        })
+    })
+
 }
